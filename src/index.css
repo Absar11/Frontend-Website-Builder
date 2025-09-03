@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* Custom utility for a subtle drop indicator */
+.drop-indicator {
+  @apply relative;
+}
+
+.drop-indicator::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-1 bg-blue-500 rounded-full scale-x-0 transition-transform;
+  transform-origin: left;
+}
+
+.drop-indicator.show-indicator::before {
+  @apply scale-x-100;
+}
